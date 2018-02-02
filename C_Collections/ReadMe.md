@@ -11,8 +11,8 @@
 - [ ] hashset.h
 - [ ] hashtable.c
 - [ ] hashtable.h
-- [ ] list.c
-- [ ] list.h
+- [x] list.c
+- [x] list.h
 - [ ] queue.c
 - [ ] queue.h
 - [ ] stack.c

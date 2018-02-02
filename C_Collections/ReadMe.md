@@ -3,22 +3,22 @@
 ### folds
 - src
 
-- [ ]cstr.c
-- [ ]cstr.h
-- [ ]dequeue.c
-- [ ]dequeue.h
-- [ ]hashset.c
-- [ ]hashset.h
-- [ ]hashtable.c
-- [ ]hashtable.h
-- [ ]list.c
-- [ ]list.h
-- [ ]queue.c
-- [ ]queue.h
-- [ ]stack.c
-- [ ]stack.h
-- [ ]vector.c
-- [ ]vector.h
+- [ ] cstr.c
+- [ ] cstr.h
+- [ ] dequeue.c
+- [ ] dequeue.h
+- [ ] hashset.c
+- [ ] hashset.h
+- [ ] hashtable.c
+- [ ] hashtable.h
+- [ ] list.c
+- [ ] list.h
+- [ ] queue.c
+- [ ] queue.h
+- [ ] stack.c
+- [ ] stack.h
+- [ ] vector.c
+- [ ] vector.h
 
 - test
 

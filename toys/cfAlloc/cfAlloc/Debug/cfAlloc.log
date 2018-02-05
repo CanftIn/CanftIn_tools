@@ -1,0 +1,43 @@
+﻿  main.cpp
+e:\visualstudio2015\vc\include\xmemory0(952): error C2664: 'CF::allocator<_Newfirst>::allocator(CF::allocator<_Newfirst> &&)': cannot convert argument 1 from 'std::_Wrap_alloc<CF::allocator<int>>' to 'const CF::allocator<_Newfirst> &'
+          with
+          [
+              _Newfirst=std::_Container_proxy
+          ]
+  e:\visualstudio2015\vc\include\xmemory0(952): note: Reason: cannot convert from 'std::_Wrap_alloc<CF::allocator<int>>' to 'const CF::allocator<_Newfirst>'
+          with
+          [
+              _Newfirst=std::_Container_proxy
+          ]
+  e:\visualstudio2015\vc\include\xmemory0(952): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+  e:\visualstudio2015\vc\include\vector(588): note: see reference to function template instantiation 'std::_Wrap_alloc<CF::allocator<_Newfirst>>::_Wrap_alloc<std::_Wrap_alloc<CF::allocator<int>>&>(_Other) noexcept' being compiled
+          with
+          [
+              _Newfirst=std::_Container_proxy,
+              _Other=std::_Wrap_alloc<CF::allocator<int>> &
+          ]
+  e:\visualstudio2015\vc\include\vector(588): note: see reference to function template instantiation 'std::_Wrap_alloc<CF::allocator<_Newfirst>>::_Wrap_alloc<std::_Wrap_alloc<CF::allocator<int>>&>(_Other) noexcept' being compiled
+          with
+          [
+              _Newfirst=std::_Container_proxy,
+              _Other=std::_Wrap_alloc<CF::allocator<int>> &
+          ]
+  e:\visualstudio2015\vc\include\vector(586): note: while compiling class template member function 'void std::_Vector_alloc<std::_Vec_base_types<_Ty,_Alloc>>::_Free_proxy(void)'
+          with
+          [
+              _Ty=int,
+              _Alloc=CF::allocator<int>
+          ]
+  e:\visualstudio2015\vc\include\vector(559): note: see reference to function template instantiation 'void std::_Vector_alloc<std::_Vec_base_types<_Ty,_Alloc>>::_Free_proxy(void)' being compiled
+          with
+          [
+              _Ty=int,
+              _Alloc=CF::allocator<int>
+          ]
+  e:\visualstudio2015\vc\include\vector(680): note: see reference to class template instantiation 'std::_Vector_alloc<std::_Vec_base_types<_Ty,_Alloc>>' being compiled
+          with
+          [
+              _Ty=int,
+              _Alloc=CF::allocator<int>
+          ]
+  f:\2018\cfalloc\cfalloc\main.cpp(11): note: see reference to class template instantiation 'std::vector<int,CF::allocator<int>>' being compiled

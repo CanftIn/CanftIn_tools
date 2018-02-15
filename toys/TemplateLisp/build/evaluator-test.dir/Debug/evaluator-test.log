@@ -1,0 +1,15 @@
+﻿  evaluator_test.cpp
+e:\2018\canftin_tools\toys\templatelisp\evaluator.hpp(77): error C2976: 'CAN::TL::List': too few template arguments
+  e:\2018\canftin_tools\toys\templatelisp\evaluator.hpp(70): note: see declaration of 'CAN::TL::List'
+  E:\2018\CanftIn_tools\toys\TemplateLisp\evaluator_test.cpp(30): note: see reference to class template instantiation 'CAN::TL::List_Ref<CAN::TL::List<CAN::TL::Int<3>>,CAN::TL::Int<2>>' being compiled
+e:\2018\canftin_tools\toys\templatelisp\evaluator.hpp(77): error C3203: 'List': unspecialized class template can't be used as a template argument for template parameter 'T', expected a real type
+e:\2018\canftin_tools\toys\templatelisp\evaluator.hpp(77): error C2027: use of undefined type 'CAN::TL::List_Ref<int,CAN::TL::Int<1>>'
+  e:\2018\canftin_tools\toys\templatelisp\evaluator.hpp(77): note: see declaration of 'CAN::TL::List_Ref<int,CAN::TL::Int<1>>'
+e:\2018\canftin_tools\toys\templatelisp\evaluator.hpp(77): error C2061: syntax error: identifier 'value'
+e:\2018\canftin_tools\toys\templatelisp\evaluator.hpp(77): error C2238: unexpected token(s) preceding ';'
+E:\2018\CanftIn_tools\toys\TemplateLisp\evaluator_test.cpp(30): error C2039: 'value': is not a member of 'CAN::TL::List_Ref<CAN::TL::List<CAN::TL::Int<3>>,CAN::TL::Int<2>>'
+  E:\2018\CanftIn_tools\toys\TemplateLisp\evaluator_test.cpp(30): note: see declaration of 'CAN::TL::List_Ref<CAN::TL::List<CAN::TL::Int<3>>,CAN::TL::Int<2>>'
+E:\2018\CanftIn_tools\toys\TemplateLisp\evaluator_test.cpp(30): error C2065: 'value': undeclared identifier
+E:\2018\CanftIn_tools\toys\TemplateLisp\evaluator_test.cpp(30): error C2923: 'CAN::TL::UTIL::StaticCheckEQ': 'value' is not a valid template type argument for parameter 'T1'
+E:\2018\CanftIn_tools\toys\TemplateLisp\evaluator_test.cpp(30): error C2027: use of undefined type 'CAN::TL::UTIL::StaticCheckEQ'
+  e:\2018\canftin_tools\toys\templatelisp\utils.hpp(17): note: see declaration of 'CAN::TL::UTIL::StaticCheckEQ'

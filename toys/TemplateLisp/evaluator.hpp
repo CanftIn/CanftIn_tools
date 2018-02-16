@@ -81,6 +81,19 @@ namespace CAN
         {
             using value = T;
         };
+
+        // If_Then_Else
+        template<class Cond, class T1, class T2> struct If_Then_Else;
+        template<class T1, class T2>
+        struct If_Then_Else<Bool<true>, T1, T2>
+        {
+            using value = T1;
+        };
+        template<class T1, class T2>
+        struct If_Then_Else<Bool<false>, T1, T2>
+        {
+            using value = T2;
+        };
     }
 }
 

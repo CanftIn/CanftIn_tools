@@ -67,7 +67,16 @@ namespace CAN
         };
 
         // List
-        template<class T, class... T_Other> struct List;
+        template<class T, class... T_Other> 
+        struct List
+        {
+            using value = Pair<T, typename List<T_Other...>::value>;
+        };
+        template<class T>
+        struct List<T>
+        {
+            using value = Pair<T, Unit>;
+        };
 
         // List.N
         template<class T, class N> struct List_Ref;

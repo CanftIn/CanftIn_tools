@@ -18,6 +18,11 @@ namespace CAN
         NoCopyable();
     };
 
+	class Object
+	{
+	public:
+		virtual ~Object();
+	};
 
 
     template<typename T>

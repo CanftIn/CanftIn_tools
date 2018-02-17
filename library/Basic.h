@@ -1,3 +1,8 @@
+#ifndef BASIC_H_
+#define BASIC_H_
+
+
+
 namespace CAN
 {
 #ifndef NODEBUG
@@ -50,3 +55,5 @@ namespace CAN
 	template<typename T>struct POD<volatile T>{static const bool Result=POD<T>::Result;};
 	template<typename T>struct POD<const volatile T>{static const bool Result=POD<T>::Result;};
 }
+
+#endif // !BASIC_H_

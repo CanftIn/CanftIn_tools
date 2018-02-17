@@ -25,13 +25,19 @@ int main()
     StaticCheckEQ< Second< Second<P>::value >::value, Bool<false> >();
 
     // List Testing
+    using L1 = List< List< Int<2>, Bool<false> >::value, 
+                     List< Int<4>, Bool<true> >::value, 
+                     List< Int<6> >::value >::value;
+    using P1 = Pair< Pair< Int<2>, Pair<Bool<false>, Unit> >,
+                     Pair< Pair< Int<4>, Pair<Bool<true>, Unit> >,
+                           Pair< Pair<Int<6>, Unit>,
+                                 Unit > > >;
+    StaticCheckEQ<L1, P1>();
     StaticCheckEQ< List_Ref< List< Int<0>, Int<1>, Int<2>, Int<3> >, Int<2> >::value,
                    Int<2> >();
     StaticCheckEQ< List_Ref< List< Int<3> >, Int<0> >::value, Int<3> >();
 
-    using L1 = List< List< Int<2>, Bool<false> >, 
-                  List< Int<2>, Bool<true> >, 
-                  List< Int<4> > >;
+
     StaticCheckEQ< List_Ref< List_Ref< L1, Int<1> >::value, Int<1> >::value, Bool<true> >();
     StaticCheckEQ< List_Ref< List_Ref< L1, Int<2> >::value, Int<0> >::value, Int<4> >();
    

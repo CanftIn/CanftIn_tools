@@ -6,17 +6,21 @@ using namespace CAN::TL::UTIL;
 
 int main()
 {
+    // ------------------------------------
     // Basic Testing
     StaticCheckEQ< Eval< Int<4> >, Int<4> >;
     StaticCheckEQ< Eval< Bool<true> >, Bool<true> >;
     StaticCheckEQ< Eval< Var<4> >, Var<4> >;
     StaticCheckEQ< Eval< Unit >, Unit >;
-
+    // ------------------------------------
+    
+    // ------------------------------------
     // Add Testing
     StaticCheckEQ< Eval< Add< Add< Int<1>, Int<3> >, Int<4> > >::value, Int<8> >();
     StaticCheckEQ< Eval< Add< Int<-9>, Int<45> > >::value, Int<36> >();
+    // ------------------------------------
 
-
+    // ------------------------------------
     // Comparing Testing
     StaticCheckEQ< Eval< IsGreater< Add< Int<1>, Int<4> >, Int<8> > >::value, Bool<false> >();
     StaticCheckEQ< Eval< IsLess< Add< Int<1>, Int<4> >, Int<8> > >::value, Bool<true> >();
@@ -24,7 +28,9 @@ int main()
 
     StaticCheckEQ< Eval< IsUnit<Unit> >::value, Bool<true> >();
     StaticCheckEQ< Eval< IsUnit< Add< Int<2>, Int<2> > > >::value, Bool<false> >();
+    // ------------------------------------
 
+    // ------------------------------------
     // Pair Testing
     using P = Pair< Pair< Int<4>, Bool<true> >,
                     Pair< Pair<Int<2>, Unit>,
@@ -33,7 +39,9 @@ int main()
     StaticCheckEQ< Eval< First< First<P> > >::value, Int<4> >();
     StaticCheckEQ< Eval< Second< First< Second<P> > > >::value, Unit >();
     StaticCheckEQ< Eval< Second< Second<P> > >::value, Bool<false> >();
+    // ------------------------------------
 
+    // ------------------------------------
     // List Testing
     using L1 = List< List< Int<2>, Bool<false> >, 
                      List< Int<4>, Bool<true> >, 
@@ -64,8 +72,9 @@ int main()
     StaticCheckEQ< Eval< ListAppend< ListAppend< L3, Add< Int<1>, Int<4> > >, 
                                      List< Int<9> > > >::value, 
                    Eval< ListAppend< L4, List< Int<9> > > >::value >();
+    // ------------------------------------
 
-    
+    // ------------------------------------
     // If_Then_Else Testing
     StaticCheckEQ< Eval< If_Then_Else< IsGreater< Int<5>, Int<8> >,
                                        L1,
@@ -75,7 +84,9 @@ int main()
                                        L1,
                                        P> >::value,
                    Eval<L1>::value >();    
+    // ------------------------------------
 
+    // ------------------------------------
     // VarValList Testing
     using VarValL0 = VarValList< Var<0>, Int<0>,
                                  VarValList< Var<1>, Int<1>, EmptyVarValList > >;
@@ -90,7 +101,9 @@ int main()
     StaticCheckEQ< VarValListLookup<Var<0>, VarValL1>::value, Int<0> >();
     StaticCheckEQ< VarValListLookup<Var<1>, VarValL1>::value, Int<1> >();
     StaticCheckEQ< VarValListLookup<Var<3>, VarValL1>::value, EmptyType >();
+    // ------------------------------------
 
+    // ------------------------------------
     // Env Testing
     using VarValL2 = VarValList< Var<8>, Int<8>,
                                  VarValList< Var<9>, Int<9>, EmptyVarValList > >;
@@ -112,6 +125,13 @@ int main()
     StaticCheckEQ< EnvLookup<Var<0>, E0>::value, EmptyType >();
     StaticCheckEQ< EnvLookup<Var<8>, E1>::value, Int<8> >();
     StaticCheckEQ< EnvLookup<Var<7>, E1>::value, Int<7> >();
-    StaticCheckEQ< EnvLookup<Var<6>, E0>::value, Int<6> >();                          
+    StaticCheckEQ< EnvLookup<Var<6>, E0>::value, Int<6> >();
+    // ------------------------------------
+
+    // ------------------------------------
+    // Lambda Testing
+    using Plus = Lambda< ParamList< Var<0>, Var<1> >,
+                         Add< Var<0>, Var<1> > >;     
+    StaticCheckEQ< Eval<Plus>::value, Closure<EmptyEnv, Plus> >();                     
     return 0;
 }

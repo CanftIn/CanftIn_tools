@@ -16,18 +16,21 @@ namespace CAN
         struct EmptyType;
         struct Unit;
 
+        // ------------------------------------
         // VarValList
         struct EmptyVarValList;
         template<class Varible, class Val, class Tail> struct VarValList;
         template<class Varible, class Val>
         struct VarValList<Varible, Val, EmptyVarValList>;
 
+        // VarValListExtend
         template<class Varible, class Val, class L>
         struct VarValListExtend
         {
             using value = VarValList<Varible, Val, L>;
         };
 
+        // VarValListLookup
         template<class V, class L> struct VarValListLookup;
         template<class V, class Varible, class Val, class Tail>
         struct VarValListLookup<V, VarValList<Varible, Val, Tail>>
@@ -44,18 +47,22 @@ namespace CAN
         {
             using value = EmptyType;
         };
+        // ------------------------------------
 
+        // ------------------------------------
         // Env
         struct EmptyEnv;
         template<class Head, class Tail> struct Env;
         template<class T> struct Env<T, EmptyEnv>;
 
+        // EnvExtend
         template<class Head, class E>
         struct EnvExtend
         {
             using value = Env<Head, E>;
         };
 
+        // EnvLookup
         template<class V, class E> struct EnvLookup;
         template<class V, class L, class ETail>
         struct EnvLookup<V, Env<L, ETail>>
@@ -70,7 +77,9 @@ namespace CAN
         {
             using value = EmptyType;
         };
+        // ------------------------------------
 
+        // ------------------------------------
         // Eval
         template<class Exp, class Environ> struct EvalUnderEnv;
 
@@ -79,7 +88,10 @@ namespace CAN
         {
             using value = typename EvalUnderEnv<Exp, EmptyEnv>::value;
         };
+        // ------------------------------------
 
+        // ------------------------------------
+        // Type of data
         template<int N, class Environ>
         struct EvalUnderEnv<Int<N>, Environ>
         {
@@ -100,7 +112,9 @@ namespace CAN
         {
             using value = Unit;
         };
+        // ------------------------------------
 
+        // ------------------------------------
         // Add
         template<class T1, class T2> struct Add;
         template<int N1, int N2, class Environ>
@@ -115,7 +129,9 @@ namespace CAN
             using T2Val = typename EvalUnderEnv<T2, Environ>::value;
             using value = typename EvalUnderEnv<Add<T1Val, T2Val>, Environ>::value;
         };
-        
+        // ------------------------------------
+
+        // ------------------------------------
         // Compare
         // >
         template<class T1, class T2> struct IsGreater;
@@ -177,7 +193,9 @@ namespace CAN
                                            Bool<true>,
                                            Bool<false> >::value;
         };
+        // ------------------------------------
 
+        // ------------------------------------
         // Pair
         template<class T1, class T2> struct Pair;
         template<class T1, class T2, class Environ>
@@ -215,7 +233,9 @@ namespace CAN
             using TVal = typename EvalUnderEnv<T, Environ>::value;
             using value = typename EvalUnderEnv<Second<TVal>, Environ>::value;
         };
+        // ------------------------------------
 
+        // ------------------------------------
         // List
         template<class... T_Other> struct List;
 
@@ -341,7 +361,9 @@ namespace CAN
             using NewTVal = typename EvalUnderEnv<NewT, Environ>::value;
             using value = Pair<NewTVal, Unit>;
         };
+        // ------------------------------------
 
+        // ------------------------------------
         // If_Then_Else
         template<class Cond, class T1, class T2> struct If_Then_Else;
         template<class Cond, class T1, class T2, class Environ>
@@ -362,7 +384,43 @@ namespace CAN
             using T2Val = typename EvalUnderEnv<T2, Environ>::value;
             using value = T2Val;
         };
-        
+        // ------------------------------------
+
+        // ------------------------------------
+        // Lambda
+
+        // ParamList
+        template<class... Param> struct ParamList;
+
+        template<class Param, class... ParamTail, class Environ>
+        struct EvalUnderEnv<ParamList<Param, ParamTail...>, Environ>
+        {
+            using PVal = typename EvalUnderEnv<Param, Environ>::value;
+            using value = typename ParamList< PVal,
+                                              typename EvalUnderEnv< ParamList<ParamTail...>, 
+                                                            Environ > >::value;
+        };
+
+        // Closure
+        template<class Environ, class Fn> struct Closure;
+
+        template<class E, class Fn, class Environ>
+        struct EvalUnderEnv<Closure<E, Fn>, Environ>
+        {
+            using value = Closure<E, Fn>;
+        };
+
+        // Lambda
+        template<class ParamL, class Body> struct Lambda;
+
+        template<class Param, class... ParamTail, class Body, class Environ>
+        struct EvalUnderEnv<Lambda<ParamList<Param, ParamTail...>, Body>, Environ>
+        {
+            using PVal = ParamList<Param, ParamTail...>;
+            using value = Closure<Environ, Lambda<PVal, Body>>;
+        };
+
+        // ------------------------------------
     }
 }
 

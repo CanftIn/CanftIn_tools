@@ -16,15 +16,26 @@ namespace CAN
             template<class T1, class T2>
             struct IsEQ
             {
-                const bool Result = false;
+                static const bool value = false;
             };
             template<class T>
             struct IsEQ<T, T>
             {
-                const bool Result = true;
+                static const bool value = true;
             };
 
-            template<int N> struct Int2Type { const int v = N; };
+            template<class T1, class T2>
+            struct NotEQ
+            {
+                static const bool value = true;
+            };
+            template<class T>
+            struct NotEQ<T, T>
+            {
+                static const bool valueu = false;
+            };
+
+            template<int N> struct Int2Type { static const int v = N; };
 
             template<bool B, class T1, class T2> struct Select;
             template<class T1, class T2>

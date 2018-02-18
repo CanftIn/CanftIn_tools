@@ -12,6 +12,8 @@ namespace CAN
         // Type of data
         template<int N> struct Int;
         template<bool B> struct Bool;
+        template<int N> struct Var;
+        struct EmptyType;
         struct Unit;
 
         // Add
@@ -45,6 +47,18 @@ namespace CAN
         struct IsEqual<Int<N1>, Int<N2>>
         {
             using value = Bool<(N1 == N2)>;
+        };
+
+        // IsUnit
+        template<class T>
+        struct IsUnit
+        {
+            using value = Bool<false>;
+        };
+        template<>
+        struct IsUnit<Unit>
+        {
+            using value = Bool<true>;
         };
 
         // Pair
@@ -82,22 +96,22 @@ namespace CAN
         template<class T>
         struct IsList
         {
-            static const bool value = false;
+            using value = Bool<false>;
         };
         template<class T1, class T2>
         struct IsList<Pair<T1, T2>>
         {
-            static const bool value = IsList<T2>::value;
+            using value = typename IsList<T2>::value;
         };
         template<class T>
         struct IsList<Pair<T, Unit>>
         {
-            static const bool value = true;
+            using value = Bool<true>;
         };
         template<>
         struct IsList<Unit>
         {
-            static const bool value = true;
+            using value = Bool<true>;
         };
 
         // List.N
@@ -137,6 +151,61 @@ namespace CAN
         struct If_Then_Else<Bool<false>, T1, T2>
         {
             using value = T2;
+        };
+
+        // VarValList
+        struct EmptyVarValList;
+        template<class Varible, class Val, class Tail> struct VarValList;
+        template<class Varible, class Val>
+        struct VarValList<Varible, Val, EmptyVarValList>;
+
+        template<class Varible, class Val, class L>
+        struct VarValListExtend
+        {
+            using value = VarValList<Varible, Val, L>;
+        };
+
+        template<class V, class L> struct VarValListLookup;
+        template<class V, class Varible, class Val, class Tail>
+        struct VarValListLookup<V, VarValList<Varible, Val, Tail>>
+        {
+            using value = typename VarValListLookup<V, Tail>::value;
+        };
+        template<class V, class Val, class Tail>
+        struct VarValListLookup<V, VarValList<V, Val, Tail>>
+        {
+            using value = Val;
+        };
+        template<class V>
+        struct VarValListLookup<V, EmptyVarValList>
+        {
+            using value = EmptyType;
+        };
+
+        // Env
+        struct EmptyEnv;
+        template<class Head, class Tail> struct Env;
+        template<class T> struct Env<T, EmptyEnv>;
+
+        template<class Head, class E>
+        struct EnvExtend
+        {
+            using value = Env<Head, E>;
+        };
+
+        template<class V, class E> struct EnvLookup;
+        template<class V, class L, class ETail>
+        struct EnvLookup<V, Env<L, ETail>>
+        {
+            using ResultType = typename VarValListLookup<V, L>::value;
+            using value = typename Select< IsEQ<ResultType, EmptyType>::value,
+                                           typename EnvLookup<V, ETail>::value,
+                                           ResultType >::value;
+        };
+        template<class V>
+        struct EnvLookup<V, EmptyEnv>
+        {
+            using value = EmptyType;
         };
     }
 }

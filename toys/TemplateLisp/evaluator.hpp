@@ -78,17 +78,52 @@ namespace CAN
             using value = Pair<T, Unit>;
         };
 
+        // IsList
+        template<class T>
+        struct IsList
+        {
+            static const bool value = false;
+        };
+        template<class T1, class T2>
+        struct IsList<Pair<T1, T2>>
+        {
+            static const bool value = IsList<T2>::value;
+        };
+        template<class T>
+        struct IsList<Pair<T, Unit>>
+        {
+            static const bool value = true;
+        };
+        template<>
+        struct IsList<Unit>
+        {
+            static const bool value = true;
+        };
+
         // List.N
         template<class T, class N> struct List_Ref;
-        template<class T, class... T_Other, int N>
-        struct List_Ref<List<T, T_Other...>, Int<N>>
+        template<class T1, class T2, int N>
+        struct List_Ref<Pair<T1, T2>, Int<N>>
         {
-            using value = typename List_Ref<List<T_Other...>, Int<N-1>>::value;
+            using value = typename List_Ref<T2, Int<N-1>>::value;
         };
-        template<class T, class... T_Other>
-        struct List_Ref<List<T, T_Other...>, Int<0>>
+        template<class T1, class T2>
+        struct List_Ref<Pair<T1, T2>, Int<0>>
         {
-            using value = T;
+            using value = T1;
+        };
+
+        // ListAppend
+        template<class L, class NewT> struct ListAppend;
+        template<class H, class T, class NewT>
+        struct ListAppend<Pair<H, T>, NewT>
+        {
+            using value = Pair<H, typename ListAppend<T, NewT>::value>;
+        };
+        template<class NewT>
+        struct ListAppend<Unit, NewT>
+        {
+            using value = Pair<NewT, Unit>;
         };
 
         // If_Then_Else

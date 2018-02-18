@@ -33,14 +33,24 @@ int main()
                            Pair< Pair<Int<6>, Unit>,
                                  Unit > > >;
     StaticCheckEQ<L1, P1>();
-    StaticCheckEQ< List_Ref< List< Int<0>, Int<1>, Int<2>, Int<3> >, Int<2> >::value,
-                   Int<2> >();
-    StaticCheckEQ< List_Ref< List< Int<3> >, Int<0> >::value, Int<3> >();
+    // IsList
+    CompileTimeCheck< IsList<L1>::value >();    
+    CompileTimeCheck< IsList<P1>::value >();
+    CompileTimeCheck< IsList<Unit>::value >();
+    CompileTimeCheck< IsList< Second<Second<P1>::value>::value >::value >();
+    
+    // List.N
+    typedef List< Int<0>, Int<1>, Int<2>, Int<3>, Int<4> >::value L3;
+    StaticCheckEQ< List_Ref< L3, Int<2> >::value, Int<2> >();
+    StaticCheckEQ< List_Ref< List_Ref< L1, Int<0> >::value, Int<0> >::value, Int<2> >(); 
 
+    // ListAppend
+    typedef List< Int<0>, Int<1>, Int<2>, Int<3>, Int<4>, Int<5> >::value L4;
+    StaticCheckEQ< ListAppend< L3, Int<5> >::value, L4 >();
+    StaticCheckEQ< ListAppend< ListAppend< L3, Int<5> >::value, List< Int<9> > >, 
+                   ListAppend< L4, List< Int<9> > > >();
 
-    StaticCheckEQ< List_Ref< List_Ref< L1, Int<1> >::value, Int<1> >::value, Bool<true> >();
-    StaticCheckEQ< List_Ref< List_Ref< L1, Int<2> >::value, Int<0> >::value, Int<4> >();
-   
+    
     // If_Then_Else Testing
     StaticCheckEQ< If_Then_Else< IsGreater< Int<5>, Int<8> >::value,
                                  L1,

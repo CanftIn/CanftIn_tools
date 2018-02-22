@@ -419,8 +419,15 @@ namespace CAN
             using PVal = ParamList<Param, ParamTail...>;
             using value = Closure<Environ, Lambda<PVal, Body>>;
         };
+        // ------------------------------------
 
         // ------------------------------------
+        // Apply
+
+        // Binding
+        template<class VarValL, class Environ, class PL, class... Val> struct Binding;
+
+        
     }
 }
 

@@ -21,7 +21,7 @@ C_Collections
 ```
 
 ## CanftIn toys project
-
+```
 toys
 ├───[animie](https://github.com/CanftIn/CanftIn_tools/tree/master/toys/animie) (pure js project)
 ├───[bookmarker](https://github.com/CanftIn/CanftIn_tools/tree/master/toys/bookmarker) (pure js project)
@@ -47,7 +47,7 @@ toys
 └───[vsCodeOpenFolder](https://github.com/CanftIn/CanftIn_tools/tree/master/toys/vsCodeOpenFolder)    (regedit file)
  ---------└───git_bash_reg
 
-
+```
 ## web project
 
 [node-project](https://github.com/CanftIn/node-project)

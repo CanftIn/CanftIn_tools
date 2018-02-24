@@ -37,6 +37,7 @@ toys
 │---------└───Debug
 ├───[genericLambdaTuple](https://github.com/CanftIn/CanftIn_tools/tree/master/toys/genericLambdaTuple)  (lambda tuple)
 │---------└───bin
+├───[helloworld](https://github.com/CanftIn/CanftIn_tools/tree/master/toys/helloworld)  (3 way to write helloworld)
 ├───[labyrinth](https://github.com/CanftIn/CanftIn_tools/tree/master/toys/labyrinth)   (labyrinth project)
 │---------└───pic
 ├───[lisp-interpreter](https://github.com/CanftIn/CanftIn_tools/tree/master/toys/lisp-interpreter)  (lisp interpreter)

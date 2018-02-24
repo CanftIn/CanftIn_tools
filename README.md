@@ -48,9 +48,79 @@ toys
  ---------└───git_bash_reg
 
 ```
-## web project
+
+## my project repo
+
+#### 1. web project
 
 [node-project](https://github.com/CanftIn/node-project)
+
+#### 2. c# game project
+
+[game](https://github.com/CanftIn/Games)
+
+#### 3. c++ minecraft project
+
+[MineCraft](https://github.com/CanftIn/MineCraft)
+
+#### 4. ice (my graphic programming language)
+
+[ice](https://github.com/CanftIn/ice)
+
+#### 5. koala (my dynamic programming language)
+
+[koala](https://github.com/CanftIn/koala)
+
+#### 6. Software Render Engine
+
+[Render Engine](https://github.com/CanftIn/RenderEngine)
+
+#### 7. game Engine
+
+[game Engine](https://github.com/CanftIn/GameEngine)
+
+
+#### 8. minijson praser
+
+[minijson](https://github.com/CanftIn/minijson)
+
+## some other toys work repo
+
+#### 1. port scanner
+
+[port scanner](https://github.com/CanftIn/minijson)
+
+#### 2. processing language exercise
+
+[processing](https://github.com/CanftIn/processing_code)
+
+#### 3. TEST project (To test some interesting thing)
+
+[TEST](https://github.com/CanftIn/TEST)
+
+#### 4. MakeaDB(lisp database)
+
+[MakeaDB](https://github.com/CanftIn/MakeaDB)
+
+#### 5. BitOS (my tiny operating system)
+
+[BitOS](https://github.com/CanftIn/BitOS)
+
+#### 6. SimpleVM
+
+[SimpleVM](https://github.com/CanftIn/SimpleVM)
+
+#### 7. EasyVM
+
+[EasyVM](https://github.com/CanftIn/EasyVM)
+
+#### 8. mycpplinq
+
+[mycpplinq](https://github.com/CanftIn/mycpplinq)
+
+#### 9. ini_parser
+
+[ini_parser](https://github.com/CanftIn/ini_parser)
 
 ## LICENSE
 

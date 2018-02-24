@@ -12,6 +12,7 @@ library
 |-- vector.h
 \-- CppTest
 ```
+### CanftIn Library Repository
 [CanftIn Library Repository](https://github.com/CanftIn/CanftIn_Library)
 
 ## C_Collections
@@ -49,7 +50,7 @@ toys
 
 ```
 
-## my project repo
+## my project repository (might be my github guider)
 
 #### 1. web project
 

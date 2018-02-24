@@ -28,7 +28,8 @@ toys
 ├───[bookmarker](https://github.com/CanftIn/CanftIn_tools/tree/master/toys/bookmarker) (pure js project)
 │---------├───css
 │---------├───fonts
-│---------└───js   
+│---------└───js
+├───[brainfuck-interpreter](https://github.com/CanftIn/CanftIn_tools/tree/master/toys/brainfuck-interpreter) (brainfuck interpreter tool)
 ├───[cfAlloc](https://github.com/CanftIn/CanftIn_tools/tree/master/toys/cfAlloc) (c allocator)
 │---------├───cfAlloc
 │---------│---------└───Debug

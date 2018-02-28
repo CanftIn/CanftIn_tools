@@ -38,7 +38,7 @@ namespace CAN
         RefPtr(T* ptr) : pPointer(nullptr), piRefCount(0) { this->operator=(ptr); }
 
         template<typename T1>
-        RefPtr(T1* ptr) : pPointer(nullptr), piRefCount(0)
+        RefPtr(T1* ptr) : pPointer(nullptr), piRefCount(nullptr)
         {
             this->operator=(ptr);
         }
@@ -100,7 +100,7 @@ namespace CAN
 			{
 				Dereference();
 				pPointer = dynamic_cast<T*>(ptr.pPointer);
-				piRefCount = ptr.iRefCount;
+				piRefCount = ptr.piRefCount;
 				(*piRefCount)++;
 			}
 			return *this;

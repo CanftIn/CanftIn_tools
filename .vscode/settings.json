@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "list": "c"
+        "list": "c",
+        "xlocale": "c",
+        "windows.h": "c"
     }
 }

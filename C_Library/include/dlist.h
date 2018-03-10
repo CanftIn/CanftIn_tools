@@ -42,9 +42,9 @@ int dlist_remove(DList *dlist, DListElem *element, void **data);
 
 #define dlist_tail(dlist) ((dlist)->tail)
 
-#define dlist_is_head(dlist, element) ((element) == (dlist)->head ? 1 : 0)
+#define dlist_is_head(element) ((element)->prev == NULL ? 1 : 0)
 
-#define dlist_is_tail(dlist, element) ((element) == (dlist)->tail ? 1 : 0)
+#define dlist_is_tail(element) ((element)->next == NULL ? 1 : 0)
 
 #define dlist_data(element) ((element)->data)
 

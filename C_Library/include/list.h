@@ -20,6 +20,7 @@ typedef struct ListElem
 typedef struct List
 {
     size_t size;
+    int (*match)(const void *key1, const void *key2);       /* use in set */
     void (*destroy)(void *data);
     ListElem *head;
     ListElem *tail;

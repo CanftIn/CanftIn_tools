@@ -1,6 +1,6 @@
 /*
     C_Library: some useful tools set
-    Module: list_test
+    Module: dlist_test
 	Copyright (c) 2018 by CanftIn <wwc7033@gmail.com>
 	contact me at http://www.canftin.com
 	MIT licence

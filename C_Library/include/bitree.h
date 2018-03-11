@@ -11,6 +11,8 @@
 
 #include <stdlib.h>
 
+#include "../include/list.h"
+
 typedef struct BiTreeNode
 {
     void *data;
@@ -54,5 +56,14 @@ int bitree_merge(BiTree *merge, BiTree *left, BiTree *right, const void *data);
 #define bitree_left(node) ((node)->left)
 
 #define bitree_right(node) ((node)->right)
+
+
+/*  traverse  */
+
+int preorder(const BiTreeNode *node, List *list);
+
+int inorder(const BiTreeNode *node, List *list);
+
+int postorder(const BiTreeNode *node, List *list);
 
 #endif // !BITREE_H

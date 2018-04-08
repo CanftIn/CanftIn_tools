@@ -1,0 +1,43 @@
+<html>
+
+<head>
+  <title>Matrix Wood Icon</title>
+  <script src="https://rawgit.com/pshihn/rough/master/dist/rough.min.js"></script>
+</head>
+
+<body>
+  <h2>CanftIn Matrix Wood Icon (First Demo)</h2>
+  <canvas id="canvas" width="800" height="600"></canvas>
+
+  <script>
+    const rc = rough.canvas(document.getElementById('canvas'));
+
+    // Matrix Wood
+    rc.polygon([[100, 100], [200, 200], [200, 400], [100, 300]], {
+      fill: 'orange'
+    });
+
+    rc.ellipse(150, 250, 80, 160);
+    rc.ellipse(150, 250, 50, 120);
+    rc.ellipse(150, 250, 20, 60);
+
+    rc.polygon([[200, 200], [373, 100], [373, 300], [200, 400]], {
+      fill: 'orange'
+    });
+
+    rc.ellipse(286, 250, 120, 160);
+    rc.ellipse(286, 250, 80, 120);
+    rc.ellipse(286, 250, 40, 80);
+
+    rc.polygon([[100, 100], [200, 200], [373, 100], [273, 0]], {
+      fill: 'orange'
+    });
+
+    rc.ellipse(230, 100, 120, 80);
+    rc.ellipse(230, 100, 80, 60);
+    rc.ellipse(230, 100, 40, 20);
+    
+  </script>
+</body>
+
+</html>

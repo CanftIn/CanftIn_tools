@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>微信跳一跳提分助手</title>
+</head>
+
+<body>
+    <div class="container container_wrap">
+        <h3>
+            微信跳一跳提分助手
+        </h3>
+        <div class="form-group">
+            <label for="sessionId">抓包获得的session_id</label>
+            <input type="text" class="form-control" id="sessionId" placeholder="session_id 值">
+        </div>
+        <div class="form-group has-error has-feedback">
+            <label for="score">分数</label>
+            <input type="text" class="form-control" id="score" placeholder="只能改1000分以下，只能改高不能改低">
+        </div>
+        <button class="btn btn-primary" id="submit">提交</button>&nbsp;&nbsp;
+
+        <div class="result">
+            <p class="text-warning">Response Result</p>
+        </div>
+        <div class="user_info">
+            <p>昵称：<span class="nickName">未加载...</span>，本周最高分：<span class="score">未加载...</span></p>
+            <img src="" />
+        </div>
+        <hr />
+        <h6>使用说明</h6>
+        <ol>
+            <li>
+                有封禁历史的慎用！！！并非周一解封！零分且自己跳也没有分的就是还在被封禁中！
+            </li>
+            <li>
+                <a href="http://www.wangyulin.cc">主站服务器 http://www.wangyulin.cc</a>
+            </li>
+            <li>
+                本站不会且没必要保存您的session_id值，只是代构造和转发数据，请您不要将您的session_id值发到公共论坛里，防止被人恶意刷分导致被封。如果session_id已经泄露，请通过修改微信密码来强制使原来的session_id失效
+            </li>
+            <li>
+                提交成功后排名无变化，一般是需要彻底结束杀死微信的进程并重新启动查看。
+            </li>
+            <li class="text-danger">
+                该功能是刷最高分，更改后无法再用程序降低分数，只能等待下周一清零更新，刷分需谨慎。
+            </li>
+            <li class="text-danger">
+                刷分尤其是高分有很大的几率被清零，且清零后会无法正常分数无法进入排行榜，并且以后会不会恢复暂时未知，不要太高，不要繁改，责任自负。
+            </li>
+        </ol>
+    </div>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+</body>
+
+</html>
